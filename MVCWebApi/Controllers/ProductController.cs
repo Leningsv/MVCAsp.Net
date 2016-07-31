@@ -15,16 +15,33 @@ namespace MVCWebApi.Controllers
         {
             return View();
         }
-        public ViewResult GetProducts()
+        public ViewResult List()
         {
             ViewBag.Products = productService.GetProducts();
-            return View();
+            ViewData["ListProducts"] = productService.GetProducts();
+            return View(productService.GetProducts());
         }
         //En caso de varios parametros  ?name=Lenin
-        public Product GetProduct(int id)
+        public ViewResult Details(int id)
         {
             Product product = productService.GetProduct(id);
-            return product;
+            return View(product);
         }
+        public ViewResult Create(Product product)
+        {
+            productService.InsertProduct(product);
+            return View(product);
+        }
+        public ViewResult Edit(Product product)
+        {
+            productService.UpdateProduct(product);
+            return View(product);
+        }
+        public ViewResult Delete(Product product)
+        {
+            productService.DeleteProduct(product.Id);
+            return View(product);
+        }
+       
     }
 }

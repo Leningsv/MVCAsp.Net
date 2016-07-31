@@ -11,5 +11,8 @@ namespace MVCDemo.Models.Services
     {
         List<Product> GetProducts();
         Product GetProduct(int id);
+        Boolean InsertProduct(Product product);
+        Boolean UpdateProduct(Product product);
+        Boolean DeleteProduct(int id);
     }
 }

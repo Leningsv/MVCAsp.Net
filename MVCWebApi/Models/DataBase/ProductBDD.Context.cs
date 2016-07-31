@@ -26,5 +26,7 @@ namespace MVCWebApi.Models.DataBase
         }
     
         public virtual DbSet<Product> Product { get; set; }
+
+        public System.Data.Entity.DbSet<MVCWebApi.Models.PeopleModel> PeopleModels { get; set; }
     }
 }
