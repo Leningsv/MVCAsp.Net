@@ -15,8 +15,9 @@ namespace MVCDemo.Models.Services
         {
             try
             {
-                var product = db.Product.Where(item => item.Id == id).FirstOrDefault();
-                if(product != null)
+                //var product = db.Product.Where(item => item.Id == id).FirstOrDefault();
+                var product = db.Product.Single(item => item.Id == id);
+                if (product != null)
                 {
                     db.Entry(product).State = EntityState.Deleted;
                     db.SaveChanges();
